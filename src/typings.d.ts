@@ -1,21 +1,22 @@
-import Discord from 'discord.js';
-import { Database } from './utils/dbm';
-import { sendError, sendInfo, sendWarn } from './utils/messages';
-//import { Db } from 'mongodb';
-//import mongodb from 'mongodb';
+/* eslint-disable no-use-before-define */
+import Discord from 'discord.js'
+import { Database } from './utils/dbm'
+import { sendError, sendInfo, sendWarn } from './utils/messages'
+// import { Db } from 'mongodb';
+// import mongodb from 'mongodb';
 
-/*export interface CDAT {
+/* export interface CDAT {
     client: CommandClient,
     message: ExtMessage,
     args: string[]
-}*/
+} */
 
 interface descriptionObject {
     short?: string;
     long?: string;
 }
 
-//DEFINE GLOBAL INTERFACES
+// DEFINE GLOBAL INTERFACES
 export interface Command {
     name: string,
     aliases?: string[],
@@ -30,10 +31,10 @@ export interface Command {
 export interface CommandClient extends Discord.Client {
     commands: Discord.Collection<string, Command>;
     database: Database;
-    //sendError: (channel: TextChannel, message?: string | undefined, errorTitle?: boolean) => undefined;
+    // sendError: (channel: TextChannel, message?: string | undefined, errorTitle?: boolean) => undefined;
     sendError: typeof sendError;
     sendWarn: typeof sendWarn;
-    sendInfo: typeof sendInfo; 
+    sendInfo: typeof sendInfo;
 }
 
 export interface ExtMessage extends Discord.Message {
@@ -69,9 +70,9 @@ export interface guildObject {// the information object assigned to every active
     recordRole?: string;// for the achievement role handed out when the record is broken
     recordHolder?: string;// identifying snowflake of the user who made the last highest count, MAY SWITCH TO ARRAY OF USERS
     foulPlayPrevention?: boolean;// foul play prevention setting turned on or off, default off; IN BETA
-    //paused?: boolean;
-    //foulMessage?: boolean;
-    //checkMarks?: boolean;
+    // paused?: boolean;
+    // foulMessage?: boolean;
+    // checkMarks?: boolean;
 }
 
 export interface GuildPlayer {// used for player data in a guildObject
@@ -79,7 +80,7 @@ export interface GuildPlayer {// used for player data in a guildObject
     errors: number;// the number of errors in total made by the player
     totalCounts: number;// the total number of counts made by the player
     highestNumber: number;// the highest number the player reached
-    //mutedUntil?: Date;
+    // mutedUntil?: Date;
 }
 
 export interface PermLevels {
@@ -98,7 +99,7 @@ export interface CheckAccessOptions {
 
 export interface PlayerData {
     userID: string;
-    //guildID?: string;
+    // guildID?: string;
     saves: 0 | 1 | 2 | 3;
     lastSaved?: Date;
     errors?: number;
