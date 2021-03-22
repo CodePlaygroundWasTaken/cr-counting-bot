@@ -1,6 +1,6 @@
 import { TextChannel } from 'discord.js'
 
-export function sendError (channel: TextChannel, message?: string, errorTitle = false): undefined {
+export function sendError (channel: TextChannel, message?: string, errorTitle = false): void {
   channel.send({
     embed: {
       color: parseInt(process.env.FAIL_COLOR || '16711680'),
@@ -10,7 +10,7 @@ export function sendError (channel: TextChannel, message?: string, errorTitle = 
   }).catch(console.error)
 }
 
-export function sendWarn (channel: TextChannel, message?: string, warnTitle = false): undefined {
+export function sendWarn (channel: TextChannel, message?: string, warnTitle = false): void {
   channel.send({
     embed: {
       color: parseInt(process.env.WARN_COLOR || '0xFF9933'),
@@ -20,7 +20,7 @@ export function sendWarn (channel: TextChannel, message?: string, warnTitle = fa
   }).catch(console.error)
 }
 
-export function sendInfo (channel: TextChannel, message?: string, infoTitle = false): undefined {
+export function sendInfo (channel: TextChannel, message?: string, infoTitle = false): void {
   channel.send({
     embed: {
       color: parseInt(process.env.INFO_COLOR || '0x8C134C'),
